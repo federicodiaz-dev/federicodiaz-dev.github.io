@@ -1,0 +1,96 @@
+/* =========================================================
+   FOOTER — SEO-first, Ultra Responsive, A11y & Perf
+   - Grid móvil→4 columnas en desktop
+   - Enlaces claros, foco visible
+   - Legal bar con contraste correcto
+========================================================= */
+
+.footer{
+  border-top: 1px solid var(--border);
+  background: color-mix(in srgb, var(--surface), transparent 0%);
+}
+
+.footer__grid{
+  display:grid; gap:20px;
+  grid-template-columns: 1fr;           /* mobile */
+  padding-block: clamp(28px, 6vw, 56px);
+}
+@media (min-width: 900px){
+  .footer__grid{ grid-template-columns: 1.2fr .8fr .8fr 1fr; }
+}
+
+/* Marca */
+.footer__logo{
+  margin: 0 0 8px;
+  font-size: clamp(18px, 2.2vw, 22px);
+  font-weight: 800;
+  letter-spacing: .2px;
+}
+.footer__tag{
+  margin: 0;
+  color: var(--muted);
+  max-width: 46ch;
+}
+
+/* Bloques de navegación */
+.footer__head{
+  margin: 0 0 8px;
+  font-size: 13px;
+  letter-spacing: .3px;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.footer__list{
+  margin:0; padding:0; list-style:none;
+  display:grid; gap:8px;
+}
+.footer__list a{
+  color: var(--text);
+  text-decoration: none;
+}
+.footer__list a:hover{
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.footer__cta{ margin-top:12px }
+
+/* Legal bar */
+.footer__legal{
+  border-top: 1px solid var(--border);
+  background: color-mix(in srgb, var(--surface), #F8FAFC 20%);
+}
+html[data-theme="dark"] .footer__legal{
+  background: color-mix(in srgb, var(--surface), #020617 30%);
+}
+
+.footer__legal-row{
+  display:flex; align-items:center; justify-content:space-between;
+  gap:12px; padding-block:14px;
+}
+.footer__legal-row small{ color: var(--muted) }
+
+.footer__legal-nav{
+  display:flex; gap:14px; margin:0; padding:0; list-style:none;
+}
+.footer__legal-nav a{
+  color: var(--muted); text-decoration:none;
+}
+.footer__legal-nav a:hover{
+  color: var(--text);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* Foco visible para links del footer */
+.footer :where(a, .btn):focus-visible{
+  outline: 3px solid color-mix(in srgb, var(--brand), #ffffff 70%);
+  outline-offset: 2px;
+  border-radius: 8px;
+}
+
+/* Print */
+@media print{
+  .footer, .footer__legal{ background:#fff }
+  .footer__grid, .footer__legal-row{ padding-block:0 }
+}

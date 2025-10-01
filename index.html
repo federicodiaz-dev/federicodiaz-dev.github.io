@@ -1,0 +1,526 @@
+<!doctype html>
+<html lang="es-AR" dir="ltr" data-theme="light">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- =========================
+       SEO BÁSICO
+  ========================== -->
+  <title>Vetta — Software a medida y Automatización (Web, RPA e Integraciones)</title>
+  <meta name="description" content="Desarrollo web y automatización de escritorio (RPA) a medida. Integraciones con Google/Microsoft/Mercado Pago y dashboards de KPIs. Resultados medibles y soporte claro.">
+  <link rel="canonical" href="https://vettadev.netlify.app/">
+
+  <!-- Indexación / Snippets -->
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <meta name="googlebot" content="index, follow">
+  <meta name="referrer" content="no-referrer-when-downgrade">
+  <meta name="format-detection" content="telephone=no, address=no, email=no">
+
+  <!-- Color scheme / theme color -->
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#FFFFFF">
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#FFFFFF">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0B1220">
+
+  <script>
+    /* Evita FOUC del tema: setea data-theme antes del CSS */
+    (function(){try{var t=localStorage.getItem('theme'); if(t) document.documentElement.setAttribute('data-theme', t);}catch(e){}})();
+  </script>
+
+  <!-- ICONOS / LOGOS -->
+  <link rel="icon" type="image/x-icon" href="images/icono.ico" sizes="any">
+  <meta name="application-name" content="Vetta">
+  <meta name="apple-mobile-web-app-title" content="Vetta">
+
+  <!-- OPEN GRAPH -->
+  <meta property="og:locale" content="es_AR">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Vetta">
+  <meta property="og:title" content="Vetta — Software a medida & Automatización (RPA) e Integraciones">
+  <meta property="og:description" content="Software a medida, RPA, integraciones (Google/Microsoft/Mercado Pago) y dashboards. Resultados medibles y soporte claro.">
+  <meta property="og:url" content="https://vettadev.netlify.app/">
+  <meta property="og:image" content="https://vettadev.netlify.app/images/og-vetta-1200x630.jpg">
+  <meta property="og:image:alt" content="Vetta: software a medida y automatización para tu negocio">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+
+  <!-- TWITTER -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Vetta — Software a medida & Automatización (RPA) e Integraciones">
+  <meta name="twitter:description" content="Desarrollo web, RPA e integraciones con Google/Microsoft/Mercado Pago.">
+  <meta name="twitter:image" content="https://vettadev.netlify.app/images/og-vetta-1200x630.jpg">
+
+  <!-- =========================
+       STRUCTURED DATA (JSON-LD)
+  ========================== -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://vettadev.netlify.app/#organization",
+        "name": "Vetta",
+        "url": "https://vettadev.netlify.app/",
+        "logo": {
+          "@type": "ImageObject",
+          "@id": "https://vettadev.netlify.app/#logo",
+          "url": "https://vettadev.netlify.app/images/logo.webp",
+          "contentUrl": "https://vettadev.netlify.app/images/logo.webp",
+          "width": 160,
+          "height": 40
+        },
+        "image": { "@id": "https://vettadev.netlify.app/#logo" },
+        "email": "mailto:contacto@vetta.dev",
+        "telephone": "+54-9-11-3588-0429",
+        "address": {
+          "@type": "PostalAddress",
+          "addressCountry": "AR"
+        },
+        "contactPoint": [{
+          "@type": "ContactPoint",
+          "contactType": "customer support",
+          "email": "mailto:contacto@vetta.dev",
+          "telephone": "+54-9-11-3588-0429",
+          "availableLanguage": ["es-AR","es","en"],
+          "areaServed": "AR"
+        }]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://vettadev.netlify.app/#website",
+        "name": "Vetta",
+        "url": "https://vettadev.netlify.app/",
+        "inLanguage": "es-AR",
+        "publisher": { "@id": "https://vettadev.netlify.app/#organization" },
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": "https://vettadev.netlify.app/?s={search_term_string}",
+          "query-input": "required name=search_term_string"
+        }
+      }
+    ]
+  }
+  </script>
+
+  <!-- =========================
+       CSS
+  ========================== -->
+  <link rel="preload" as="image" href="images/logo.webp" imagesrcset="images/logo.webp 1x, images/logo.webp 2x">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="sections/roi.css">
+  <link rel="stylesheet" href="sections/cards.css">
+  <link rel="stylesheet" href="sections/process.css">
+  <link rel="stylesheet" href="sections/contact.css">
+  <link rel="stylesheet" href="sections/guarantees.css">
+  <link rel="stylesheet" href="sections/footer.css">
+  <link rel="stylesheet" href="animations.css">
+</head>
+
+<body>
+  <a class="skip-link" href="#main">Saltar al contenido</a>
+
+  <!-- =========================
+       HEADER
+  ========================== -->
+  <header class="site-header" role="banner">
+    <div class="container header__inner">
+      <a class="brand" href="#home" rel="home" aria-label="Volver al inicio">
+        <img
+          src="images/logo.webp"
+          srcset="images/logo.webp 1x, images/logo.webp 2x"
+          width="160" height="40"
+          alt="Vetta — Software a medida y automatización"
+          decoding="async" fetchpriority="high">
+        <span class="visually-hidden">Vetta</span>
+      </a>
+
+      <nav class="nav" aria-label="Navegación principal">
+        <a class="nav__link is-active" href="#home" aria-current="page">Home</a>
+        <a class="nav__link" href="#servicios">Servicios</a>
+        <a class="nav__link" href="#proceso">Proceso</a>
+        <a class="nav__link" href="#contacto">Contacto</a>
+      </nav>
+
+      <!-- Botón tema claro/oscuro -->
+      <button id="themeToggle" class="theme-toggle" type="button" aria-label="Cambiar tema" aria-pressed="false">
+        <span class="theme-toggle__track" aria-hidden="true">
+          <svg class="icon sun" viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="12" cy="12" r="4"></circle>
+            <g class="rays"><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"/></g>
+          </svg>
+          <svg class="icon moon" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M21 12.5A8.5 8.5 0 1 1 11.5 3a6.8 6.8 0 0 0 9.5 9.5Z"/>
+          </svg>
+          <span class="theme-toggle__thumb"></span>
+        </span>
+        <span class="visually-hidden" id="themeStatus">Modo claro</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- =========================
+       MAIN
+  ========================== -->
+  <main id="main" role="main">
+    <!-- HERO -->
+    <section class="hero" id="home" aria-label="Presentación de servicios">
+      <div class="container hero__grid">
+        <div>
+          <span class="badge">Servicios profesionales</span>
+          <h1>Software a medida y automatización <br> para eliminar tareas repetitivas</h1>
+          <p class="lead">
+            Desarrollo web, apps de escritorio y RPA integrados con Google/Microsoft/Mercado Pago.
+            Resultados medibles, documentación clara y soporte continuo.
+          </p>
+          <div class="cta-row">
+            <a href="#contacto" class="btn btn--primary">Agendar reunión</a>
+            <a href="#servicios" class="btn btn--outline">Ver servicios</a>
+          </div>
+          <div class="metrics" aria-label="Métricas de confianza">
+            <div class="metric"><b>+12</b><span>Clientes activos</span></div>
+            <div class="metric"><b>+20</b><span>Integraciones</span></div>
+            <div class="metric"><b>99.9%</b><span>SLA</span></div>
+          </div>
+        </div>
+
+        <aside class="panel" aria-label="Áreas de valor">
+          <div class="panel__title">Áreas de valor</div>
+          <ul class="panel__list">
+            <li>Automatización de procesos (bots de escritorio / RPA) con métricas de ahorro.</li>
+            <li>Dashboards y ETL/ELT con KPIs claros para decisiones rápidas.</li>
+            <li>Integraciones: Google Workspace/Calendar, Microsoft Graph/OneNote/SharePoint, Mercado Pago.</li>
+          </ul>
+          <div class="contact-inline">
+            <button class="copy" type="button" data-copy="contacto@vetta.dev">Copiar email</button>
+            <a class="btn btn--outline" href="https://wa.me/5491135880429" target="_blank" rel="noopener">WhatsApp</a>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- CALCULADORA ROI -->
+    <section class="roi" id="calculadora" aria-labelledby="roi-title">
+      <div class="container roi__grid">
+        <div>
+          <p class="roi__eyebrow">Estimá tu impacto</p>
+          <h2 id="roi-title" class="roi__title">¿Cuánto podés ahorrar automatizando?</h2>
+          <p class="roi__lead">Ingresá datos simples y mirá una proyección de ahorro mensual/anual. Usamos supuestos conservadores y podés ajustar los valores en cualquier momento.</p>
+          <ul class="roi__bullets" role="list" aria-label="Beneficios rápidos">
+            <li>Menos tareas repetitivas y errores.</li>
+            <li>Integración con tus herramientas actuales.</li>
+            <li>Resultados medibles desde el primer mes.</li>
+          </ul>
+        </div>
+
+        <form class="roi__card" id="roiForm" aria-describedby="roi-note">
+          <div class="roi__fields">
+            <label class="fld">
+              <span>Horas/semana automatizables</span>
+              <input type="number" id="hoursPerWeek" min="0" step="0.5" value="10" inputmode="decimal" />
+            </label>
+            <label class="fld">
+              <span>Costo hora (ARS)</span>
+              <input type="number" id="hourlyRate" min="0" step="100" value="6000" inputmode="numeric" />
+            </label>
+            <label class="fld fld--range">
+              <div class="fld__row">
+                <span>% de tarea automatizable</span>
+                <output id="autoPctOut" for="autoPct">40%</output>
+              </div>
+              <input type="range" id="autoPct" min="0" max="100" value="40" step="5" />
+            </label>
+            <label class="fld">
+              <span>Costo estimado del proyecto (ARS)</span>
+              <input type="number" id="projectCost" min="0" step="10000" value="1200000" inputmode="numeric" />
+            </label>
+          </div>
+
+          <div class="roi__results" aria-live="polite" aria-atomic="true">
+            <div class="kpi"><span class="kpi__label">Ahorro mensual</span><strong class="kpi__value" id="monthlySaving">$0</strong></div>
+            <div class="kpi"><span class="kpi__label">Ahorro anual</span><strong class="kpi__value" id="yearlySaving">$0</strong></div>
+            <div class="kpi"><span class="kpi__label">Payback</span><strong class="kpi__value" id="payback">—</strong></div>
+          </div>
+
+          <div class="roi__cta">
+            <a class="btn btn--primary" href="#contacto">Quiero una evaluación gratis</a>
+            <p id="roi-note" class="roi__note">Estimaciones informativas. Ajustá los valores para tu caso.</p>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <!-- SERVICIOS -->
+    <section class="cards" id="servicios" aria-labelledby="cards-title">
+      <div class="container">
+        <h2 class="cards__title" id="cards-title">Servicios</h2>
+        <ul class="cards__grid" role="list">
+          <li class="card">
+            <h3 class="card__title">Sitios web claros</h3>
+            <p class="card__desc">Landing corporativa o página simple que carga rápido, con buen SEO y accesibilidad.</p>
+            <a class="card__link" href="#contacto">Quiero mi web</a>
+          </li>
+          <li class="card">
+            <h3 class="card__title">Apps web internas</h3>
+            <p class="card__desc">Herramientas online para tu equipo: formularios, listados, filtros y exportaciones.</p>
+            <a class="card__link" href="#contacto">Necesito una app</a>
+          </li>
+          <li class="card">
+            <h3 class="card__title">Automatización de escritorio</h3>
+            <p class="card__desc">Bots que hacen tareas repetitivas por vos. Incluye instalador para Windows/macOS.</p>
+            <a class="card__link" href="#contacto">Automatizar mi tarea</a>
+          </li>
+          <li class="card">
+            <h3 class="card__title">Integraciones</h3>
+            <p class="card__desc">Conecto Google, Microsoft y Mercado Pago para que tus procesos fluyan sin copiar/pegar.</p>
+            <a class="card__link" href="#contacto">Integrar mis sistemas</a>
+          </li>
+          <li class="card">
+            <h3 class="card__title">Datos y reportes</h3>
+            <p class="card__desc">Tableros y archivos (CSV/Excel/PDF) con tus KPIs para decidir con números.</p>
+            <a class="card__link" href="#contacto">Ver mis KPIs</a>
+          </li>
+          <li class="card">
+            <h3 class="card__title">Reservas y pagos</h3>
+            <p class="card__desc">Turnos con Google Calendar, recordatorios y cobros online con cupones.</p>
+            <a class="card__link" href="#contacto">Quiero vender/recibir turnos</a>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- PROCESO -->
+    <section class="process" id="proceso" aria-labelledby="process-title">
+      <div class="container">
+        <header class="process__head">
+          <h2 id="process-title">Cómo trabajamos — en 6 pasos</h2>
+          <p class="process__sub">Rápido, claro y sin vueltas. Desde la idea hasta el uso real, con entregas visibles.</p>
+        </header>
+        <ol class="process__list">
+          <li class="process__item">
+            <div class="process__badge" aria-hidden="true">1</div>
+            <h3 class="process__title">Descubrimiento (20’)</h3>
+            <p class="process__desc">Entiendo tu proceso y el problema a resolver. Definimos objetivo y éxito.</p>
+            <ul class="process__points"><li>Reunión breve por Meet/WhatsApp</li><li>Relevamos ejemplos y datos</li></ul>
+          </li>
+          <li class="process__item">
+            <div class="process__badge" aria-hidden="true">2</div>
+            <h3 class="process__title">Propuesta y alcance</h3>
+            <p class="process__desc">Documento simple con qué incluye, tiempos y precio cerrado.</p>
+            <ul class="process__points"><li>Hitos y entregables</li><li>Integraciones previstas</li></ul>
+          </li>
+          <li class="process__item">
+            <div class="process__badge" aria-hidden="true">3</div>
+            <h3 class="process__title">Prototipo</h3>
+            <p class="process__desc">Boceto navegable o capturas para validar rápido antes de desarrollar.</p>
+            <ul class="process__points"><li>Feedback en 24–48 hs</li><li>Ajustes de contenido/flujo</li></ul>
+          </li>
+          <li class="process__item">
+            <div class="process__badge" aria-hidden="true">4</div>
+            <h3 class="process__title">Desarrollo</h3>
+            <p class="process__desc">Construcción por partes, con avances visibles y priorizando lo esencial.</p>
+            <ul class="process__points"><li>Entregas semanales</li><li>Pruebas básicas incluidas</li></ul>
+          </li>
+          <li class="process__item">
+            <div class="process__badge" aria-hidden="true">5</div>
+            <h3 class="process__title">Pruebas & puesta en marcha</h3>
+            <p class="process__desc">Testeamos en tu entorno y dejamos todo listo para usar.</p>
+            <ul class="process__points"><li>Capacitación breve</li><li>Manual simple en PDF</li></ul>
+          </li>
+          <li class="process__item">
+            <div class="process__badge" aria-hidden="true">6</div>
+            <h3 class="process__title">Soporte y mejoras</h3>
+            <p class="process__desc">Acompaño el uso real y ajustamos detalles para ganar eficiencia.</p>
+            <ul class="process__points"><li>Soporte inicial</li><li>Plan de mejoras opcional</li></ul>
+          </li>
+        </ol>
+        <div class="process__foot">
+          <a class="btn btn--primary" href="#contacto">Quiero empezar</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACTO -->
+    <section class="contact" id="contacto" aria-labelledby="contact-title">
+      <div class="container contact__grid">
+        <div class="contact__col-left">
+          <header class="contact__head">
+            <h2 id="contact-title">Hablemos de tu proyecto</h2>
+            <p class="contact__sub">Contame brevemente qué querés automatizar o qué web necesitás. Te respondo con una propuesta concreta.</p>
+          </header>
+          <div class="contact__stack">
+            <aside class="aside__box">
+              <h3>Canales directos</h3>
+              <ul>
+                <li><b>Email:</b> contacto@vetta.dev</li>
+                <li><b>WhatsApp:</b> +54 9 11 3588 0429</li>
+                <li><b>Horario:</b> Lun–Vie, 9 a 18 (ART)</li>
+              </ul>
+            </aside>
+            <aside class="aside__box">
+              <h3>Qué espero de tu mensaje</h3>
+              <ul>
+                <li>1–2 procesos que querés mejorar</li>
+                <li>Herramientas que usás (Google/Microsoft/MP)</li>
+                <li>Si hay alguna fecha límite</li>
+              </ul>
+            </aside>
+          </div>
+        </div>
+
+        <form class="contact__form" id="contactForm" novalidate>
+          <div class="hp" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden;">
+            <label>Dejar en blanco: <input type="text" name="company" tabindex="-1" autocomplete="off"></label>
+          </div>
+
+          <div class="row">
+            <label class="fld"><span>Nombre y apellido</span><input type="text" name="name" autocomplete="name" required></label>
+            <label class="fld"><span>Email</span><input type="email" name="email" autocomplete="email" required></label>
+          </div>
+
+          <div class="row">
+            <label class="fld">
+              <span>Industria</span>
+              <select name="industry">
+                <option value="Sin especificar">Sin especificar</option>
+                <option>Estudio jurídico</option><option>Peluquería/Barbería</option>
+                <option>Café/Restó</option><option>Escape Room</option>
+                <option>Compra-venta de vehículos</option><option>Otra</option>
+              </select>
+            </label>
+            <label class="fld">
+              <span>Presupuesto aproximado</span>
+              <select name="budget">
+                <option value="A definir">A definir</option>
+                <option>&lt; ARS 500.000</option>
+                <option>ARS 500.000 – 1.500.000</option>
+                <option>&gt; ARS 1.500.000</option>
+              </select>
+            </label>
+          </div>
+
+          <label class="fld"><span>¿Qué necesitás? (sé concreto)</span>
+            <textarea name="message" rows="5" minlength="20" placeholder="Ej.: Automatizar carga de facturas a Sheets y enviar reportes semanales…" required></textarea>
+          </label>
+
+          <div class="row row--seg">
+            <fieldset class="fld segctrl" role="radiogroup">
+              <legend class="fld__legend">Preferencia de contacto</legend>
+              <div class="segctrl__wrap">
+                <input class="segctrl__input" type="radio" id="prefEmail" name="pref" value="email" checked>
+                <label class="segctrl__btn" for="prefEmail">Email</label>
+                <input class="segctrl__input" type="radio" id="prefWhatsapp" name="pref" value="whatsapp">
+                <label class="segctrl__btn" for="prefWhatsapp">WhatsApp</label>
+              </div>
+            </fieldset>
+            <label class="fld fld--phone is-hidden"><span>WhatsApp</span>
+              <input type="tel" name="phone" inputmode="tel" placeholder="+54 9 …">
+            </label>
+          </div>
+
+          <div class="agree">
+            <label class="chk"><input type="checkbox" name="consent" required>
+              <span>Acepto ser contactad@ para esta consulta.</span>
+            </label>
+          </div>
+
+          <div class="actions">
+            <button type="submit" class="btn btn--primary">Enviar consulta</button>
+            <a class="btn btn--outline" href="https://wa.me/5491135880429" target="_blank" rel="noopener">Escribir por WhatsApp</a>
+          </div>
+
+          <p class="hint">No comparto tus datos con terceros. Podés pedir la eliminación cuando quieras.</p>
+          <div class="form-status" id="contactStatus" role="status" aria-live="polite"></div>
+        </form>
+      </div>
+    </section>
+
+    <!-- GARANTÍAS -->
+    <section class="guars" id="garantias" aria-labelledby="guars-title">
+      <div class="container">
+        <header class="guars__head">
+          <h2 id="guars-title">Lo que te prometo en cada proyecto</h2>
+          <p class="guars__sub">Condiciones claras y entregables concretos para que avances con confianza.</p>
+        </header>
+        <ul class="guars__grid" role="list">
+          <li class="gcard"><h3 class="gcard__title">Precio cerrado</h3><p class="gcard__desc">Definimos alcance y monto antes de comenzar. Sin sorpresas.</p></li>
+          <li class="gcard"><h3 class="gcard__title">Entregas por etapas</h3><p class="gcard__desc">Ves avances reales cada semana y podés ajustar a tiempo.</p></li>
+          <li class="gcard"><h3 class="gcard__title">Propiedad del código</h3><p class="gcard__desc">Repositorio, instaladores y archivos finales son tuyos.</p></li>
+          <li class="gcard"><h3 class="gcard__title">Soporte post-entrega</h3><p class="gcard__desc">Corrección de errores y acompañamiento inicial.</p></li>
+          <li class="gcard"><h3 class="gcard__title">Seguridad básica</h3><p class="gcard__desc">Claves del lado servidor y verificación según proveedor.</p></li>
+          <li class="gcard"><h3 class="gcard__title">Documentación simple</h3><p class="gcard__desc">Manual breve (PDF) y videos cortos desde el día uno.</p></li>
+        </ul>
+        <div class="guars__cta">
+          <a class="btn btn--primary" href="#contacto">Quiero avanzar</a>
+          <a class="btn btn--outline" href="#servicios">Ver servicios</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer" id="footer" aria-labelledby="footer-title">
+    <div class="container footer__grid">
+      <div class="footer__brand">
+        <h2 id="footer-title" class="footer__logo">Vetta</h2>
+        <p class="footer__tag">Software a medida y automatización para tu negocio. Claro, medible y sin vueltas.</p>
+      </div>
+
+      <nav class="footer__nav" aria-label="Navegación del sitio">
+        <h3 class="footer__head">Sitio</h3>
+        <ul class="footer__list" role="list">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#servicios">Servicios</a></li>
+          <li><a href="#proceso">Proceso</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+        </ul>
+      </nav>
+
+      <nav class="footer__nav" aria-label="Servicios destacados">
+        <h3 class="footer__head">Servicios</h3>
+        <ul class="footer__list" role="list">
+          <li><a href="#servicios">Web corporativa</a></li>
+          <li><a href="#servicios">Automatización (RPA)</a></li>
+          <li><a href="#servicios">Integraciones</a></li>
+          <li><a href="#servicios">Datos & reportes</a></li>
+        </ul>
+      </nav>
+
+      <div class="footer__contact">
+        <h3 class="footer__head">Contacto</h3>
+        <ul class="footer__list" role="list">
+          <li><a href="mailto:contacto@vetta.dev">contacto@vetta.dev</a></li>
+          <li><a href="https://wa.me/5491135880429" target="_blank" rel="noopener">WhatsApp</a></li>
+          <li>Lun–Vie · 9 a 18 (ART)</li>
+        </ul>
+        <div class="footer__cta">
+          <a class="btn btn--primary" href="#contacto">Agendar consulta</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer__legal">
+      <div class="container footer__legal-row">
+        <small>© <span id="year">2025</span> Vetta. Todos los derechos reservados.</small>
+        <ul class="footer__legal-nav" role="list">
+          <li><a href="terminos-sla.html">Términos & SLA</a></li>
+          <li><a href="privacidad.html">Privacidad</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <!-- =========================
+       JS (defer para rendimiento)
+  ========================== -->
+  <script defer src="scripts/roi.js"></script>
+  <script defer src="app.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script defer src="scripts/contact.js"></script>
+  <script>
+    // Año dinámico en el footer (no bloquea render)
+    document.getElementById('year')?.textContent = String(new Date().getFullYear());
+  </script>
+</body>
+</html>

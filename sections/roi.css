@@ -1,0 +1,243 @@
+/* =========================================================
+   ROI (Calculadora) — SEO-first, Ultra Responsive, A11y & Perf
+   - Mobile-first; grid auto-fit para adaptarse a cualquier ancho
+   - Campos grandes y accesibles (tap targets)
+   - Estabilidad visual (evita CLS)
+   - Controles nativos estilizados (range, number)
+   - Modo claro/oscuro y alto contraste
+========================================================= */
+
+.roi{
+  padding-block: clamp(40px, 8vw, 96px);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  background: color-mix(in srgb, var(--surface), transparent 0%);
+}
+
+.roi__grid{
+  display: grid;
+  gap: 24px;
+  grid-template-columns: 1fr;          /* mobile */
+  align-items: start;
+}
+@media (min-width: 980px){
+  .roi__grid{ grid-template-columns: 1.1fr .9fr; }
+}
+
+/* ---------- Cabecera / texto ---------- */
+.roi__eyebrow{
+  margin: 0 0 6px;
+  font-size: 12px;
+  letter-spacing: .3px;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.roi__title{
+  margin: 0 0 8px;
+  font-weight: 800;
+  font-size: clamp(22px, 3vw, 32px);
+  letter-spacing: .2px;
+}
+.roi__lead{
+  margin: 0 0 10px;
+  color: var(--muted);
+  max-width: 70ch;
+}
+.roi__bullets{
+  margin: 0;
+  padding-left: 18px;
+  display: grid;
+  gap: 6px;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+/* ---------- Tarjeta/Form ---------- */
+.roi__card{
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 18px;
+  display: grid;
+  gap: 16px;
+}
+
+/* Grid de campos con auto-fit (fluido) */
+.roi__fields{
+  display: grid;
+  gap: 14px;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+/* Campo genérico */
+.fld{
+  display: grid;
+  gap: 6px;
+}
+.fld span{
+  font-size: 14px;
+  color: var(--muted);
+}
+
+/* Inputs y selects coherentes (heredan tokens globales) */
+.fld input[type="number"],
+.fld input[type="text"],
+.fld select,
+.fld textarea{
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: color-mix(in srgb, var(--surface), #F8FAFC 30%);
+  color: var(--text);
+  min-height: 42px;
+  padding: 10px 12px;
+  font: inherit;
+  transition: border-color .15s ease, background .15s ease, outline-color .15s ease;
+}
+html[data-theme="dark"] .fld input[type="number"],
+html[data-theme="dark"] .fld input[type="text"],
+html[data-theme="dark"] .fld select,
+html[data-theme="dark"] .fld textarea{
+  background: color-mix(in srgb, var(--surface), #020617 40%);
+}
+.fld textarea{ resize: vertical }
+
+/* Mejoras de accesibilidad/foco */
+.fld :is(input, select, textarea):focus{
+  outline: 2px solid color-mix(in srgb, var(--brand), #ffffff 70%);
+  outline-offset: 1px;
+  border-color: var(--brand);
+}
+
+/* Nota: mantenemos los spinners nativos de number por accesibilidad. */
+
+/* ---------- Campo RANGE estilizado ---------- */
+.fld--range .fld__row{
+  display:flex; align-items:center; justify-content:space-between;
+}
+.fld--range output{
+  font-variant-numeric: tabular-nums;
+  font-weight: 700;
+  color: var(--text);
+}
+
+/* Track genérico */
+.fld input[type="range"]{
+  width: 100%;
+  appearance: none;
+  height: 6px;
+  background: linear-gradient(90deg, var(--brand) 40%, var(--border) 40%);
+  border-radius: 999px;
+  outline: none;
+  transition: background .2s ease;
+}
+/* WebKit thumb */
+.fld input[type="range"]::-webkit-slider-thumb{
+  appearance: none;
+  width: 18px; height: 18px; border-radius: 50%;
+  background: #fff; border: 2px solid var(--brand);
+  box-shadow: 0 2px 8px rgba(0,0,0,.15);
+  margin-top: -6px;  /* centra el thumb respecto al track */
+}
+/* Firefox track/thumb */
+.fld input[type="range"]::-moz-range-track{
+  height: 6px; background: var(--border); border-radius: 999px;
+}
+.fld input[type="range"]::-moz-range-progress{
+  height: 6px; background: var(--brand); border-radius: 999px;
+}
+.fld input[type="range"]::-moz-range-thumb{
+  width: 18px; height: 18px; border-radius: 50%;
+  background: #fff; border: 2px solid var(--brand);
+  box-shadow: 0 2px 8px rgba(0,0,0,.15);
+}
+
+/* Focus del slider */
+.fld input[type="range"]:focus-visible{
+  outline: 3px solid color-mix(in srgb, var(--brand), #ffffff 60%);
+  outline-offset: 4px;
+}
+
+/* ---------- Resultados/KPIs ---------- */
+.roi__results{
+  display: grid;
+  gap: 12px;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+}
+.kpi{
+  background: color-mix(in srgb, var(--surface), #F8FAFC 30%);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 14px;
+  display: grid; gap: 4px;
+}
+html[data-theme="dark"] .kpi{
+  background: color-mix(in srgb, var(--surface), #020617 40%);
+}
+.kpi__label{
+  font-size: 12px;
+  letter-spacing: .3px;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.kpi__value{
+  font-weight: 800;
+  font-size: clamp(1rem, 1.2vw + .8rem, 1.375rem);
+  letter-spacing: .2px;
+  line-height: 1.25;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ---------- CTA y nota ---------- */
+/* ROI – separa un poco más el CTA de los KPIs */
+.roi__cta{
+  display: grid;
+  gap: 8px;
+  align-content: start;
+  margin-top: clamp(12px, 2.5vw, 28px); /* ↓ más espacio arriba */
+}
+.roi__note{
+  margin: 0;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+/* -------------------------
+   Estados de interacción
+------------------------- */
+@media (hover:hover){
+  .kpi:hover{
+    border-color: color-mix(in srgb, var(--brand), var(--border) 70%);
+  }
+}
+
+/* -------------------------
+   Alto contraste
+------------------------- */
+@media (prefers-contrast: more){
+  .roi__card{ border-color: #94A3B8 }
+  .kpi{ border-color: #94A3B8 }
+}
+
+/* -------------------------
+   Reduced motion
+------------------------- */
+@media (prefers-reduced-motion: reduce){
+  .roi__card, .kpi, .fld input[type="range"]{ transition: none }
+}
+
+/* -------------------------
+   Impresión (SEO-friendly)
+------------------------- */
+@media print{
+  .roi{
+    padding-block: 0;
+    border: none;
+    background: #fff;
+  }
+  .roi__card, .kpi{
+    box-shadow: none;
+    border-color: #999;
+    background: #fff;
+  }
+}

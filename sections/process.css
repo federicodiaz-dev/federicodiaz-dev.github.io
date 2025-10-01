@@ -1,0 +1,167 @@
+/* =========================================================
+   PROCESO — SEO-first, Ultra Responsive, A11y & Perf
+   - Mobile-first con grid auto-fit (se adapta a cualquier ancho)
+   - Contrast y foco accesibles
+   - Animaciones sutiles, desactivadas con reduced-motion
+   - Estilos robustos para impresión
+   - Usa tokens de styles.css (bg/surface/text/muted/border/brand, radius, shadow)
+========================================================= */
+
+.process{
+  padding-block: clamp(40px, 8vw, 96px);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  background: color-mix(in srgb, var(--surface), transparent 0%);
+}
+
+/* Cabecera clara y compacta en mobile */
+.process__head{
+  display: grid;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+.process__head h2{
+  margin: 0;
+  font-weight: 800;
+  font-size: clamp(22px, 3vw, 32px);
+  letter-spacing: .2px;
+}
+.process__sub{
+  margin: 0;
+  color: var(--muted);
+  max-width: 70ch;
+}
+
+/* Grid de pasos: auto-fit para respuesta fluida */
+.process__list{
+  list-style: none;
+  margin: 20px 0 8px;
+  padding: 0;
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+
+/* Tarjetas de paso: estables (CLS) y accesibles */
+.process__item{
+  position: relative;
+  display: grid;
+  gap: 10px;
+  padding: 18px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  transition: transform .12s ease, border-color .2s ease, background .2s ease;
+}
+
+/* Hover solo donde hay puntero; foco para teclado/lectores */
+@media (hover:hover){
+  .process__item:hover{
+    transform: translateY(-2px);
+    border-color: color-mix(in srgb, var(--brand), var(--border) 70%);
+  }
+}
+.process__item:focus-within{
+  outline: 3px solid color-mix(in srgb, var(--brand), #ffffff 70%);
+  outline-offset: 2px;
+}
+
+/* Insignia del paso: visible en claro/oscuro */
+.process__badge{
+  inline-size: 32px;
+  block-size: 32px;
+  border-radius: 10px;
+  display: inline-grid;
+  place-items: center;
+  font-weight: 800;
+  color: var(--brand);
+  background: color-mix(in srgb, var(--brand), #ffffff 88%);
+  border: 1px solid color-mix(in srgb, var(--brand), var(--border) 60%);
+}
+html[data-theme="dark"] .process__badge{
+  background: color-mix(in srgb, var(--brand), #000000 86%);
+}
+
+/* Título/descripcion con jerarquía clara */
+.process__title{
+  margin: 0;
+  font-weight: 800;
+  letter-spacing: .2px;
+  font-size: 18px;
+}
+.process__desc{
+  margin: 0;
+  color: var(--muted);
+}
+
+/* Viñetas compactas y legibles */
+.process__points{
+  margin: 0;
+  padding-left: 18px;
+  color: var(--muted);
+  display: grid;
+  gap: 6px;
+  font-size: 14px;
+}
+
+/* CTA inferior centrada */
+.process__foot{
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+}
+
+/* -------------------------
+   Accesibilidad & Motion
+------------------------- */
+@media (prefers-reduced-motion: reduce){
+  .process__item{ transition: none }
+}
+
+/* -------------------------
+   Altos contrastes
+------------------------- */
+@media (prefers-contrast: more){
+  .process__item{ border-color: #94A3B8 }
+  .process__item:focus-within{ outline-width: 4px }
+}
+
+/* -------------------------
+   Impresión (SEO-friendly)
+------------------------- */
+@media print{
+  .process{
+    padding-block: 0;
+    border: none;
+    background: #fff;
+  }
+  .process__item{
+    box-shadow: none;
+    border-color: #999;
+  }
+}
+
+/* ===== OVERRIDE: Proceso 3x2 en desktop ===== */
+
+/* Mobile: 1 columna */
+.process .process__list{
+  display: grid;
+  gap: 18px;
+  grid-template-columns: 1fr;
+}
+
+/* Tablet: 2 columnas */
+@media (min-width: 768px){
+  .process .process__list{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+/* Desktop: 3 columnas (→ 3 arriba + 3 abajo para 6 pasos) */
+@media (min-width: 1024px){
+  .process .process__list{ grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+
+/* Tarjetas a igual altura dentro de cada fila */
+.process .process__list > li{ display: flex; min-width: 0; }
+.process .process__item{ height: 100%; display: flex; flex-direction: column; }
+

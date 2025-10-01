@@ -1,0 +1,144 @@
+/* =========================================================
+   CARDS (Servicios) — SEO-first, Ultra Responsive, A11y & Perf
+   - Mobile-first con grid auto-fit (fluye a cualquier ancho)
+   - Estabilidad visual (sin saltos/CLS)
+   - Foco accesible y buen contraste
+   - Animaciones sutiles (desactivadas si reduced-motion)
+   - Estilos de impresión limpios
+   - Usa tokens de styles.css (bg/surface/text/muted/border/brand, radius, shadow)
+========================================================= */
+
+.cards{
+  padding-block: clamp(40px, 8vw, 96px);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  background: color-mix(in srgb, var(--surface), transparent 0%);
+}
+
+/* Título compacto y legible en mobile */
+.cards__title{
+  margin: 0 0 18px;
+  font-weight: 800;
+  font-size: clamp(22px, 3vw, 32px);
+  letter-spacing: .2px;
+}
+
+/* Grid fluido con auto-fit y tarjetas mínimas estables */
+.cards__grid{
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+
+/* Tarjeta base */
+.card{
+  display: grid;
+  gap: 10px;
+  padding: 18px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  transition: transform .12s ease, border-color .2s ease, background .2s ease;
+  min-height: 100%;             /* llena el alto de la celda, mejora consistencia */
+}
+
+/* Hover solo en dispositivos con puntero */
+@media (hover:hover){
+  .card:hover{
+    transform: translateY(-2px);
+    border-color: color-mix(in srgb, var(--brand), var(--border) 70%);
+  }
+}
+
+/* Foco accesible (teclado/lectores) */
+.card:focus-within{
+  outline: 3px solid color-mix(in srgb, var(--brand), #ffffff 70%);
+  outline-offset: 2px;
+}
+
+/* Título y descripción con jerarquía clara */
+.card__title{
+  margin: 0;
+  font-weight: 800;
+  font-size: 18px;
+  letter-spacing: .2px;
+  line-height: 1.25;
+}
+.card__desc{
+  margin: 0;
+  color: var(--muted);
+}
+
+/* Enlace tipo “leer más / CTA” estilo texto (SEO-friendly) */
+.card__link{
+  margin-top: 6px;
+  width: fit-content;
+  color: var(--brand);
+  font-weight: 600;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1.25px;
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--tap); /* target táctil cómodo */
+}
+.card__link:hover{
+  text-decoration-thickness: 2px;
+}
+
+/* -------------------------
+   Alto contraste
+------------------------- */
+@media (prefers-contrast: more){
+  .card{ border-color: #94A3B8 }
+  .card:focus-within{ outline-width: 4px }
+}
+
+/* -------------------------
+   Reduced motion
+------------------------- */
+@media (prefers-reduced-motion: reduce){
+  .card{ transition: none }
+}
+
+/* -------------------------
+   Impresión (SEO-friendly)
+------------------------- */
+@media print{
+  .cards{
+    padding-block: 0;
+    border: none;
+    background: #fff;
+  }
+  .card{
+    box-shadow: none;
+    border-color: #999;
+    background: #fff;
+  }
+}
+
+/* ====== Servicios en 3x2 (simétrico) ====== */
+/* Móvil: 1 columna (ya viene por defecto) */
+
+/* Tablet: 2 columnas */
+@media (min-width: 720px){
+  .cards__grid{
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Desktop/large: 3 columnas exactas (3 arriba, 3 abajo) */
+@media (min-width: 1100px){
+  .cards__grid{
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Asegura alturas consistentes por fila y buen alineado */
+.card{
+  height: 100%;
+  align-content: start;
+}
